@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -29,7 +30,7 @@ const ProductBanner = ({
       {/* VizGenie Logo */}
       <div className="absolute top-4 left-4 flex flex-col">
         <img 
-          src="/vizgenie-logo.png" 
+          src="/lovable-uploads/ca9adb88-577b-4172-9571-ebfcde00d963.png" 
           alt="VizGenie Logo" 
           className="w-32 h-auto object-contain mb-2"
         />
