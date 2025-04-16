@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -28,12 +27,15 @@ const ProductBanner = ({
       )}
     >
       {/* VizGenie Logo */}
-      <div className="absolute top-4 left-4 w-32 h-auto">
+      <div className="absolute top-4 left-4 flex flex-col">
         <img 
           src="/vizgenie-logo.png" 
           alt="VizGenie Logo" 
-          className="w-full h-auto object-contain"
+          className="w-32 h-auto object-contain mb-2"
         />
+        <div className="text-xs text-gray-600 font-medium">
+          Launched on GitHub: vsion-x/vizgenie
+        </div>
       </div>
 
       {/* Partner Logos */}
