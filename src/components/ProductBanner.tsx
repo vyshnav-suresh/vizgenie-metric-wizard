@@ -32,7 +32,7 @@ const ProductBanner = ({
         <img 
           src="/lovable-uploads/ca9adb88-577b-4172-9571-ebfcde00d963.png" 
           alt="VizGenie Logo" 
-          className="w-32 h-auto object-contain mb-2"
+          className="w-32 h-auto object-contain mb-2 bg-white/50 p-2 rounded"
         />
         <div className="text-xs text-gray-600 font-medium">
           Launched on GitHub: vsion-x/vizgenie
