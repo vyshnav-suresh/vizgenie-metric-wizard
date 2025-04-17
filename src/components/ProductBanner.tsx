@@ -89,7 +89,9 @@ const ProductBanner = ({
             ))}
           </ul>
           <div className="text-xs text-gray-600 font-medium mt-10">
+            <a href='https://github.com/vsion-x/vizgenie'>
           Launched on GitHub: vsion-x/vizgenie
+          </a>
         </div>
         </div>
         

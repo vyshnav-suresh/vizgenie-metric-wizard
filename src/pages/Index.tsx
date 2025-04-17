@@ -60,7 +60,7 @@ const Index = () => {
             "text-sm",
             theme === 'dark' ? "text-gray-400" : "text-gray-500"
           )}>
-            © 2025 VizGenie. All rights reserved.
+            © 2025 vsionX. All rights reserved.
           </p>
         </div>
       </div>
