@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Sparkles, Rocket } from 'lucide-react';
 
 interface ProductBannerProps {
   title: string;
@@ -21,34 +19,43 @@ const ProductBanner = ({
   return (
     <div 
       className={cn(
-        "relative flex flex-col border rounded-lg overflow-hidden aspect-[3/4] shadow-lg",
+        "relative flex flex-col  max-w-[60%] max-h-[600px] border rounded-lg overflow-hidden aspect-[3/4]",
         variant === 'primary' 
-          ? "bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100 border-blue-200" 
-          : "bg-gradient-to-br from-purple-50 via-purple-100 to-blue-100 border-purple-200",
+          ? "bg-gradient-to-b from-blue-50 to-indigo-100 border-blue-200" 
+          : "bg-gradient-to-b from-purple-50 to-blue-100 border-purple-200",
         className
       )}
     >
-      {/* Decoration Elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 backdrop-blur-sm"></div>
-      <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -ml-20 -mb-20 backdrop-blur-sm"></div>
+      {/* VizGenie Logo */}
+      <div className="absolute top-4 left-4 flex flex-col">
+        <img 
+                     src="/logo.png"
+                     alt="VizGenie Logo"
+                     className="mx-auto mb-4 w-32 h-auto"
+                   />
+       
+      </div>
+
+      {/* Partner Logos */}
+      <div className="absolute top-4 right-4 flex space-x-3">
+        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center p-1">
+          <img 
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" 
+            alt="Grafana Logo" 
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center p-1">
+          <img 
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" 
+            alt="Prometheus Logo" 
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col h-full relative z-10">
-        <div className="flex items-center mb-4">
-          <div className={cn(
-            "w-10 h-10 rounded-full flex items-center justify-center mr-3",
-            variant === 'primary' ? "bg-blue-500" : "bg-purple-500",
-          )}>
-            {variant === 'primary' ? 
-              <Rocket size={20} className="text-white" /> : 
-              <Sparkles size={20} className="text-white" />
-            }
-          </div>
-          <div className="text-xs text-gray-600 font-medium">
-            Launched on GitHub: vsion-x/vizgenie
-          </div>
-        </div>
-        
+      <div className="mt-24 px-6 flex flex-col h-full">
         <h2 className={cn(
           "text-3xl font-bold mb-3",
           variant === 'primary' ? "text-blue-600" : "text-purple-600"
@@ -81,10 +88,13 @@ const ProductBanner = ({
               </li>
             ))}
           </ul>
+          <div className="text-xs text-gray-600 font-medium mt-10">
+          Launched on GitHub: vsion-x/vizgenie
+        </div>
         </div>
         
         <div className={cn(
-          "mt-auto mb-2 py-2 px-6 rounded-full text-white text-center font-medium",
+          "mt-auto mb-8 py-2 px-6 rounded-full text-white text-center font-medium",
           variant === 'primary' 
             ? "bg-blue-500 hover:bg-blue-600" 
             : "bg-purple-500 hover:bg-purple-600",
@@ -94,9 +104,9 @@ const ProductBanner = ({
         </div>
       </div>
       
-      {/* Enhanced Pattern Bottom Decoration */}
+      {/* Pattern Bottom Decoration */}
       <div className={cn(
-        "absolute bottom-0 left-0 right-0 h-32 opacity-20",
+        "absolute bottom-0 left-0 right-0 h-24 opacity-20",
         variant === 'primary' 
           ? "bg-blue-300" 
           : "bg-purple-300",
@@ -120,12 +130,6 @@ const ProductBanner = ({
             fill="none" 
             stroke={variant === 'primary' ? "#3B82F6" : "#8B5CF6"} 
             strokeWidth="0.5" 
-          />
-          <path 
-            d="M0,30 Q40,60 80,30 T160,30" 
-            fill="none" 
-            stroke={variant === 'primary' ? "#3B82F6" : "#8B5CF6"} 
-            strokeWidth="0.8" 
           />
         </svg>
       </div>
