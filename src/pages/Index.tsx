@@ -21,18 +21,19 @@ const Index = () => {
       "min-h-screen w-full p-6 overflow-hidden transition-colors duration-300",
       theme === 'dark' ? "bg-gradient-to-br from-gray-900 to-black dark" : "bg-gradient-to-br from-gray-50 to-white"
     )}>
-      <div className="max-w-7xl mx-auto relative z-10">
       <button
             onClick={toggleTheme}
             className={cn(
-              "p-2 rounded-full absolute top-5 right-5",
+              "p-2 rounded-full absolute -top-2 -right-2",
               theme === 'dark' ? "bg-gray-700 text-gray-200 hover:bg-gray-600" : "bg-gray-200 text-gray-800 hover:bg-gray-300",
               "focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors absolute top-6 right-6 z-30"
             )}
             aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
           >
-            {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+            {theme === 'dark' ? <Sun size={12} /> : <Moon size={12} />}
           </button>
+      <div className="max-w-7xl mx-auto relative z-10">
+      
         <div className="flex justify-center items-center mb-12">
           <div className="text-center">
            
@@ -51,6 +52,7 @@ const Index = () => {
             title={bannerContent.title}
             description={bannerContent.description}
             features={bannerContent.features}
+            theme={theme}
             variant="primary"
           />
         </div>

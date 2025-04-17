@@ -1,9 +1,11 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Github } from 'lucide-react';
 
 interface ProductBannerProps {
   title: string;
   description: string;
+  theme: string;
   features: string[];
   variant: 'primary' | 'secondary';
   className?: string;
@@ -12,6 +14,7 @@ interface ProductBannerProps {
 const ProductBanner = ({ 
   title, 
   description, 
+  theme,
   features, 
   variant = 'primary',
   className
@@ -19,7 +22,9 @@ const ProductBanner = ({
   return (
     <div 
       className={cn(
-        "relative flex flex-col  max-w-[60%] max-h-[600px] border rounded-lg overflow-hidden aspect-[3/4]",
+        "relative flex flex-col border rounded-lg overflow-hidden px-4",
+        "md:max-w-[60%] min-h-[500px] max-h-[500px]  md:max-h-[500px] md:aspect-[5/6] ",
+        "max-w-full max-h-[500px]",
         variant === 'primary' 
           ? "bg-gradient-to-b from-blue-50 to-indigo-100 border-blue-200" 
           : "bg-gradient-to-b from-purple-50 to-blue-100 border-purple-200",
@@ -27,17 +32,16 @@ const ProductBanner = ({
       )}
     >
       {/* VizGenie Logo */}
-      <div className="absolute top-4 left-4 flex flex-col">
+      <div className="absolute top-2 left-7 flex flex-col md:flex-row items-center">
         <img 
-                     src="/logo.png"
-                     alt="VizGenie Logo"
-                     className="mx-auto mb-4 w-32 h-auto"
-                   />
-       
+          src="/logo.png"
+          alt="VizGenie Logo"
+          className="w-24 h-auto md:w-24 sm:w-24"
+        />
       </div>
 
       {/* Partner Logos */}
-      <div className="absolute top-4 right-4 flex space-x-3">
+      <div className="absolute top-4 right-4 flex space-x-2 md:space-x-3">
         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center p-1">
           <img 
             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" 
@@ -53,22 +57,22 @@ const ProductBanner = ({
           />
         </div>
       </div>
-
+   
       {/* Content */}
-      <div className="mt-24 px-6 flex flex-col h-full">
+      <div className="mt-20 md:mt-16  border-t-[.5px] border-blue-400 px-2 pt-3 sm:px-3 flex flex-col h-full">
         <h2 className={cn(
-          "text-3xl font-bold mb-3",
+          "text-3xl font-bold mb-5 sm:text-2xl",
           variant === 'primary' ? "text-blue-600" : "text-purple-600"
         )}>
           {title}
         </h2>
         
-        <p className="text-gray-700 mb-6 text-sm">
+        <p className="text-gray-700 mb-5 text-sm">
           {description}
         </p>
         
         <div className="flex-grow">
-          <ul className="space-y-3">
+          <ul className="space-y-6">
             {features.map((feature, index) => (
               <li 
                 key={index} 
@@ -88,22 +92,38 @@ const ProductBanner = ({
               </li>
             ))}
           </ul>
-          <div className="text-xs text-gray-600 font-medium mt-10">
-            <a href='https://github.com/vsion-x/vizgenie'>
-          Launched on GitHub: vsion-x/vizgenie
-          </a>
-        </div>
+              
+       
         </div>
         
-        <div className={cn(
-          "mt-auto mb-8 py-2 px-6 rounded-full text-white text-center font-medium",
-          variant === 'primary' 
-            ? "bg-blue-500 hover:bg-blue-600" 
-            : "bg-purple-500 hover:bg-purple-600",
-          "transition-colors cursor-pointer shadow-md"
-        )}>
-          Coming Soon
-        </div>
+  
+   {/* <div className="mt-6 sm:mt-4 flex justify-start text-center items-center"> */}
+            <a 
+              href="https://github.com/vsion-x/vizgenie"
+              target="_blank"
+             
+              className={cn(
+                "mt-auto z-[9999] mb-4 sm:mb-2 p-2  cursor-pointer rounded-full text-white text-center font-medium",
+                variant === 'primary' 
+                  ? "bg-blue-700 hover:bg-blue-600" 
+                  : "bg-purple-500 hover:bg-purple-600",
+                "transition-colors cursor-pointer shadow-md "
+              )}
+            >
+              <div 
+                // className={cn(
+                //   "inline-block p-2 rounded-xl bg-gradient-to-br from-gray-700 to-gray-900 border-[0.1px] border-gray-600 backdrop-blur-md shadow-lg transition-all duration-300",
+                //   theme === 'light' && "bg-gray-200 border-gray-300 text-gray-800",
+                //   "focus:outline-none focus:ring-2 focus:ring-purple-500"
+                // )}
+              >
+                <div className="flex text-white  cursor-pointer justify-center text-center items-center">
+                  <Github className="w-6 h-6  text-white  mr-2 animate-pulse sm:w-5 sm:h-5" />
+                  GitHub: vsion-x/vizgenie
+                </div>
+              </div>
+            </a>
+          {/* </div> */}
       </div>
       
       {/* Pattern Bottom Decoration */}
